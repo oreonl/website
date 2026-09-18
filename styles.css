@@ -1,0 +1,121 @@
+/* RoShamBo site styles. Each page picks a theme on <body>:
+   .theme-parchment  — Deck of Many NPCs (the app's parchment + ink palette)
+   .theme-ember      — First Roll (the app's default dark crimson/gold theme)
+   The home page uses .theme-ember with each app card in its own palette. */
+
+:root {
+  --font-display: 'Cinzel', 'Times New Roman', serif;
+  --font-body: 'Alegreya', Georgia, serif;
+  --max: 1080px;
+}
+
+.theme-parchment {
+  --bg: #F2EBDB;
+  --surface: #FAF6EC;
+  --ink: #2B2317;
+  --muted: #5E5340;
+  --outline: #877A5F;
+  --accent: #7A1F1F;
+  --accent-ink: #FFFFFF;
+  --font-body: 'Alegreya', Georgia, serif;
+}
+
+.theme-ember {
+  --bg: #0F0D0B;
+  --surface: #1C1916;
+  --ink: #E8DFCC;
+  --muted: #B5A480;
+  --outline: #3D3530;
+  --accent: #C41E3A;
+  --accent-ink: #FFFFFF;
+  --gold: #C5A028;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.55;
+}
+a { color: var(--accent); }
+.theme-ember a { color: var(--gold); }
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; margin: 0 0 .4em; }
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+h3 { font-size: 1.15rem; font-weight: 600; }
+p { margin: 0 0 1em; }
+
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--outline); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: 3.5rem; }
+.brand { font-family: var(--font-display); font-weight: 700; letter-spacing: .04em; text-decoration: none; color: var(--ink); }
+.site-header nav a { margin-left: 1.25rem; text-decoration: none; color: var(--muted); }
+.site-header nav a:hover { color: var(--ink); text-decoration: underline; }
+
+/* Hero */
+.hero { padding: 3.5rem 0 2.5rem; }
+.hero .wrap { display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; }
+.hero .icon { width: 128px; height: 128px; border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.hero .lede { font-size: 1.3rem; color: var(--muted); max-width: 34em; }
+.hero .facts { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; color: var(--muted); font-size: .95rem; }
+.hero .facts li::before { content: '✦ '; color: var(--accent); }
+.theme-ember .hero .facts li::before { color: var(--gold); }
+.play-badge img { height: 64px; width: auto; }
+@media (max-width: 640px) {
+  .hero .wrap { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+  .hero .facts { justify-content: center; }
+}
+
+/* Screenshots */
+.shots { padding: 1rem 0 2.5rem; }
+.shots .wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.shots img { border-radius: 14px; border: 1px solid var(--outline); box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+@media (max-width: 640px) {
+  .shots .wrap { grid-template-columns: 1fr; max-width: 360px; }
+}
+
+/* Features */
+.features { padding: 2rem 0 3rem; }
+.features .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.feature { background: var(--surface); border: 1px solid var(--outline); border-radius: 14px; padding: 1.4rem 1.5rem; }
+.feature ul { padding-left: 1.2em; margin: 0; }
+.feature li { margin: .35em 0; }
+
+/* Closing call to action */
+.cta { text-align: center; padding: 1rem 0 3.5rem; }
+.cta .play-badge { display: inline-block; margin-top: .75rem; }
+
+/* Apps on the home page */
+.apps { padding: 2.5rem 0 3rem; }
+.apps .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.app-card {
+  display: grid; grid-template-columns: 88px 1fr; gap: 1.25rem; align-items: start;
+  border-radius: 16px; padding: 1.5rem; text-decoration: none;
+  background: var(--bg); color: var(--ink); border: 1px solid var(--outline);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.app-card:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,.3); }
+.app-card img { width: 88px; height: 88px; border-radius: 20px; }
+.app-card h2 { margin-bottom: .2em; }
+.app-card p { color: var(--muted); margin: 0; }
+.app-card .more { color: var(--accent); font-weight: 600; margin-top: .6em; display: inline-block; }
+.theme-ember .app-card.theme-ember .more { color: var(--gold); }
+
+/* Legal text and footer */
+.legal { font-size: .9rem; color: var(--muted); padding: 1.5rem 0; border-top: 1px solid var(--outline); }
+.site-footer { border-top: 1px solid var(--outline); padding: 1.5rem 0 2.5rem; font-size: .95rem; color: var(--muted); }
+.site-footer a { margin-right: 1.25rem; }
+
+/* Privacy policy pages keep the generator's own structure; just give it room. */
+.policy { max-width: 46em; padding: 2rem 1.25rem 3rem; margin: 0 auto; }
+.policy strong { font-family: var(--font-display); font-size: 1.1rem; display: block; margin-top: 1.25em; }
+.policy p:first-child strong, .policy > strong:first-child { font-size: 1.8rem; margin-top: 0; }

@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects. The privacy policies used to live at the site
+# root (and still do at oreonl.github.io/website/, which older app builds
+# link to); their canonical homes are now under each app's directory.
+/domnpcs.html    /domnpcs/privacy/    301
+/firstroll.html  /firstroll/privacy/  301
