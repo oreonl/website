@@ -79,8 +79,12 @@ p { margin: 0 0 1em; }
 .shots { padding: 1rem 0 2.5rem; }
 .shots .wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 .shots img { border-radius: 14px; border: 1px solid var(--outline); box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+/* Landscape games (Monster Royale): two wide shots a row. */
+.shots.landscape .wrap { grid-template-columns: repeat(2, 1fr); }
+.coming-soon { font-family: var(--font-display); color: var(--gold); font-size: 1.15rem; margin: 0; }
 @media (max-width: 640px) {
   .shots .wrap { grid-template-columns: 1fr; max-width: 360px; }
+  .shots.landscape .wrap { max-width: 480px; }
 }
 
 /* Features */

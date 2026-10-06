@@ -13,6 +13,9 @@ domnpcs/img/               icon + three Play Store phone screenshots
 firstroll/index.html       First Roll landing page
 firstroll/privacy/         First Roll privacy policy
 firstroll/img/             icon + three Play Store phone screenshots
+monsterroyale/index.html   Monster Royale landing page
+monsterroyale/privacy/     Monster Royale privacy policy
+monsterroyale/img/         icon + four Play Store screenshots (landscape)
 3d3t.html                  3D Tic Tac Toe privacy policy
 domnpcs.html               old policy locations: redirect stubs for GitHub
 firstroll.html             Pages; _redirects does the same on Cloudflare
